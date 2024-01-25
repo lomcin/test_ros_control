@@ -5,11 +5,7 @@
             "includePath": [
                 "${workspaceFolder}/**/include/**",
                 "/opt/ros/${ROS_DISTRO}/include/",
-                "${workspaceFolder}/../../devel/include/",
-                "${workspaceFolder}/../../build/mujoco_ros/_deps/mujoco-src/include/",
-                "${workspaceFolder}/../../build/mujoco_ros/_deps/glfw-src/include/",
-                "${workspaceFolder}/../../build/mujoco_ros/_deps/imgui-src/",
-                "${workspaceFolder}/../../build/mujoco_ros/_deps/imguifiledialog-src/"
+                "${workspaceFolder}/../../devel/include/"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
