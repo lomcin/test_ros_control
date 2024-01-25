@@ -35,16 +35,16 @@ class RobotHWInterface : public hardware_interface::RobotHW
 public:
     RobotHWInterface() = default;
     ~RobotHWInterface() = default;
-    bool init(ros::NodeHandle & root_nh, ros::NodeHandle & robot_hw_nh)
+    bool init(ros::NodeHandle &root_nh, ros::NodeHandle &robot_hw_nh)
     {
         ROS_INFO("Initialized RobotHWInterface.");
         return true;
     }
-    void read(const ros::Time & /*time*/, const ros::Duration & /*period*/)
+    void read(const ros::Time &time, const ros::Duration &period)
     {
         ROS_INFO("Read from RobotHWInterface.");
     }
-    void write(const ros::Time & /*time*/, const ros::Duration & /*period*/)
+    void write(const ros::Time &time, const ros::Duration &period)
     {
         ROS_INFO("Write from RobotHWInterface.");
     }

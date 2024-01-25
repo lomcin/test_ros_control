@@ -22,47 +22,22 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+#ifndef __CONTROL_MANAGER_DUMMY_ROBOT_HARDWARE_INTERFACE__H_
+#define __CONTROL_MANAGER_DUMMY_ROBOT_HARDWARE_INTERFACE__H_
+
 // ROS Includes
 #include <ros/ros.h>
 #include <controller_manager/controller_manager.h>
 #include <hardware_interface/hardware_interface.h>
 
-// Controller Manager Node package includes
-#include <RobotHWInterface.hpp>
-#include <DummyRobotHWInterface.hpp>
-
-hardware_interface::RobotHW *robot_hw;
-controller_manager::ControllerLoaderInterface *loader;
-controller_manager::ControllerManager *manager;
-
-const char *node_name = "controller_manager_node";
-
-int main(int argc, char **argv)
+class DummyRobotHWInterface : public hardware_interface::RobotHW
 {
-    ros::init(argc, argv, node_name);
-    ros::NodeHandle nh;
-    ros::NodeHandle robotHwNh("~");
+public:
+    DummyRobotHWInterface() = default;
+    ~DummyRobotHWInterface() = default;
+    bool init(ros::NodeHandle &root_nh, ros::NodeHandle &robot_hw_nh);
+    void read(const ros::Time &time, const ros::Duration &period);
+    void write(const ros::Time &time, const ros::Duration &period);
+};
 
-    robot_hw = new DummyRobotHWInterface();
-    manager = new controller_manager::ControllerManager(robot_hw, robotHwNh);
-    ros::Rate rate(100);
-    ros::Time ts = ros::Time::now();
-
-    while (ros::ok())
-    {
-        ros::spinOnce();
-        ros::Duration d = ros::Time::now() - ts;
-        ts = ros::Time::now();
-
-        robot_hw->read(ts, d);
-        manager->update(ts, d);
-        robot_hw->write(ts, d);
-        rate.sleep();
-        ROS_INFO("[%s] ros loop ping.", node_name);
-    }
-    // delete loader;
-    delete robot_hw;
-    delete manager;
-
-    return 0;
-}
+#endif // __CONTROL_MANAGER_DUMMY_ROBOT_HARDWARE_INTERFACE__H_

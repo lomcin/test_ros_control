@@ -134,7 +134,10 @@ ${catkin_INCLUDE_DIRS}
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(controller_manager_node src/controller_manager_node.cpp)
+add_executable(controller_manager_node
+              src/controller_manager_node.cpp
+              src/dummy_robot_hardware.cpp
+)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
