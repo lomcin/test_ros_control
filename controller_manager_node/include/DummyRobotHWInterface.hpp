@@ -25,12 +25,9 @@ SOFTWARE.
 #ifndef __CONTROL_MANAGER_DUMMY_ROBOT_HARDWARE_INTERFACE__H_
 #define __CONTROL_MANAGER_DUMMY_ROBOT_HARDWARE_INTERFACE__H_
 
-// ROS Includes
-#include <ros/ros.h>
-#include <controller_manager/controller_manager.h>
-#include <hardware_interface/hardware_interface.h>
+#include <RobotHWInterface.hpp>
 
-class DummyRobotHWInterface : public hardware_interface::RobotHW
+class DummyRobotHWInterface : public RobotHWInterface
 {
 public:
     DummyRobotHWInterface() = default;
