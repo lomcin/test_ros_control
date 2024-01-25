@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**/include/**",
+                "/opt/ros/${ROS_DISTRO}/include/",
+                "${workspaceFolder}/../../devel/include/",
+                "${workspaceFolder}/../../build/mujoco_ros/_deps/mujoco-src/include/",
+                "${workspaceFolder}/../../build/mujoco_ros/_deps/glfw-src/include/",
+                "${workspaceFolder}/../../build/mujoco_ros/_deps/imgui-src/",
+                "${workspaceFolder}/../../build/mujoco_ros/_deps/imguifiledialog-src/"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c17",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}
